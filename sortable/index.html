@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Superhero Data</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            background-color: #f0f4f8; /* Light background for contrast */
+            color: #ff0000; /* Default text color to white */
+        }
+        header {
+            background-color: #0033cc; /* Deep blue for Marvel theme */
+            color: #ffffff; /* White text for contrast */
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        header h1 {
+            font-size: 7em;
+            margin: 0;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Red glow for Marvel effect */
+        }
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        input[type="text"], select {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px auto;
+            background-color: #ffffff; /* White background for the table */
+            border: 1px solid #ddd;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #cc0000; /* Red background for table headers */
+            color: #ffffff; /* White text for table headers */
+            cursor: pointer;
+        }
+        th.sort-asc::after {
+            content: ' ▲';
+        }
+        th.sort-desc::after {
+            content: ' ▼';
+        }
+        img {
+            max-width: 50px;
+            border-radius: 4px;
+        }
+        #pagination {
+            margin: 20px;
+            text-align: center;
+        }
+        #pagination button {
+            margin: 0 5px;
+            padding: 8px 16px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            background-color: #0033cc; /* Blue background for buttons */
+            color: #ffffff; /* White text for buttons */
+            cursor: pointer;
+            font-size: 1em;
+        }
+        #pagination button:hover {
+            background-color: #002299; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Superhero Data</h1>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Search by name">
+            <label for="pageSize">Page Size:</label>
+            <select id="pageSize">
+                <option value="10">10</option>
+                <option value="20" selected>20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="all">All</option>
+            </select>
+        </div>
+    </header>
+    <table id="heroesTable">
+        <thead>
+            <tr>
+                <th data-sort="name">Name</th>
+                <th data-sort="fullName">Full Name</th>
+                <th data-sort="powerstats.intelligence">Intelligence</th>
+                <th data-sort="powerstats.strength">Strength</th>
+                <th data-sort="appearance.race">Race</th>
+                <th data-sort="appearance.gender">Gender</th>
+                <th data-sort="appearance.height[0]">Height</th>
+                <th data-sort="appearance.weight[0]">Weight</th>
+                <th data-sort="biography.placeOfBirth">Place of Birth</th>
+                <th data-sort="biography.alignment">Alignment</th>
+                <th>Icon</th>
+            </tr>
+        </thead>
+        <tbody id="heroesBody">
+            <!-- Table rows will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+    <div id="pagination">
+        <!-- Pagination controls will be inserted here by JavaScript -->
+    </div>
+    <script src="sortable.js"></script>
+</body>
+</html>
